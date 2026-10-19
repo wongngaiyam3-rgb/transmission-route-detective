@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#264f49">
+  <meta name="description" content="和健康探索小隊一起觀察五個生活情境，找出病原體、排列傳播路線，想出保護自己和別人的方法。適合香港小四科學。">
+  <title>傳播路線偵探｜健康探索小隊</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="傳播路線偵探首頁"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="10"/><path d="m24 24 10 10M13 17h8m-4-4v8"/></svg></span><span>傳播路線偵探<small>健康探索小隊</small></span></a>
+    <nav aria-label="主要導覽"><a href="#home" data-nav="home">任務地圖</a><a href="#discoveries" data-nav="discoveries">我的發現<span id="nav-count">0/5</span></a><button class="guide-button" data-action="guide">教學指引<span aria-hidden="true"> ↗</span></button></nav>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer"><span>觀察一點・想多一步・一起守護健康</span><span>小四科學　／　傳染病的傳播</span></footer>
+  <dialog id="image-dialog" class="image-dialog"><button class="dialog-close" data-action="close-image" aria-label="關閉放大圖片">×</button><img id="large-image" alt=""><p>放大圖中的病原體是示意，實際肉眼通常看不到。</p></dialog>
+  <dialog id="guide-dialog" class="guide-dialog"><button class="dialog-close" data-action="close-guide" aria-label="關閉教學指引">×</button><span class="eyebrow">給老師的小筆記</span><h2>用一條路線，說清楚傳播。</h2><p>建議每組2–4人，約30分鐘。五個任務可自由選擇，無須等候老師開課。</p><ol class="guide-steps"><li><b>5分鐘　先分清楚</b><span>問：「甚麼令人生病？它怎樣傳過去？」分辨病原體與傳播途徑。</span></li><li><b>10分鐘　追蹤路線</b><span>學生看圖、讀情境，找出病原體，再按先後排列卡片。點選卡片即可操作，也支援拖放。</span></li><li><b>10分鐘　截斷路線</b><span>學生選擇預防方法。請他們指著路線解釋：「這方法在哪一步有幫助？」</span></li><li><b>5分鐘　換情境再想</b><span>用「我的發現」的辨析題，檢查學生能否把所學用在新說法上。</span></li></ol><h3>留意學生是否理解</h3><p>蚊子是病媒，水、飛沫和雙手可以攜帶病原體；它們本身不是情境中的病原體。接觸病原體不代表一定受感染。同一疾病也可能有多種傳播途徑；本活動判斷的是圖中那一次的傳播過程。</p><p>飛沫情境用來認識其中一種呼吸道傳播方式，並不涵蓋所有懸浮微粒及空氣傳播情況。針具圖示範的是錯誤共用做法，並非正常醫療程序。</p><h3>學習紀錄</h3><p>進度只保存在目前的瀏覽器，沒有班級連線或教師收集功能。可在「我的發現」列印紀錄，或下載文字檔。</p><details><summary>教師答案與參考資料</summary><div id="teacher-answers"></div><p>香港衞生防護中心：<a href="https://www.chp.gov.hk/tc/healthtopics/content/24/29.html" target="_blank" rel="noreferrer">季節性流行性感冒</a>、<a href="https://www.chp.gov.hk/tc/healthtopics/content/24/23.html" target="_blank" rel="noreferrer">手足口病</a>、<a href="https://www.chp.gov.hk/tc/healthtopics/content/24/16.html" target="_blank" rel="noreferrer">霍亂</a>、<a href="https://www.chp.gov.hk/tc/healthtopics/content/24/19.html" target="_blank" rel="noreferrer">登革熱</a>、<a href="https://www.chp.gov.hk/tc/healthtopics/content/24/27.html" target="_blank" rel="noreferrer">乙型肝炎</a>。</p></details></dialog>
+  <dialog id="reset-dialog" class="reset-dialog"><h2>重新開始探索？</h2><p>這個瀏覽器內的五個任務紀錄會被清除。你可以先下載或列印紀錄。</p><div class="dialog-actions"><button class="button secondary" data-action="cancel-reset">保留紀錄</button><button class="button" data-action="confirm-reset">重新開始</button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
