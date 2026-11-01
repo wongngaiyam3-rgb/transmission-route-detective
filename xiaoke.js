@@ -115,6 +115,9 @@
       if (turn === sequence && identity === enrollment) { busy = false; controller = null; status.textContent = ''; controls(); scrollMessages(); if (panel.open) question.focus(); }
     }
   });
-  window.addEventListener('pagehide', () => { sequence++; controller?.abort(); });
+  window.addEventListener('pagehide', () => {
+    sequence++; controller?.abort(); controller = null; busy = false;
+    status.textContent = ''; controls();
+  });
   controls();
 })();
