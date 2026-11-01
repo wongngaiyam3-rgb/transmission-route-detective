@@ -1,7 +1,7 @@
 /* Public UI only. Gemini credentials and moderation stay on the existing server. */
 (() => {
   'use strict';
-  const API = 'https://science-curiosity-lab.ilovetsr089.chatgpt.site';
+  const API = 'https://nltqzuhubqhwtfxwuupr.supabase.co/functions/v1/xiaoke-science';
   const SOURCE = '【傳播路線偵探｜小四科學】\n';
   const byId = id => document.getElementById(id);
   const launcher = byId('xiaoke-launcher'), panel = byId('xiaoke-panel');
@@ -27,9 +27,10 @@
   }
   async function connect() {
     const turn = ++configSequence;
+    const abort = new AbortController(), timer = setTimeout(() => abort.abort(),15000);
     connecting = true; config = null; connection.textContent = '正在連接小科…'; reconnect.hidden = true; controls();
     try {
-      const response = await fetch(API + '/api/config', {credentials:'omit', cache:'no-store', signal:AbortSignal.timeout(15000)});
+      const response = await fetch(API + '/api/config', {credentials:'omit', cache:'no-store', headers:{'x-region':'ap-southeast-1'}, signal:abort.signal});
       const data = await response.json();
       if (!response.ok || data.mode !== 'live' || !/^\d{4}-\d{4}$/.test(data.academicYear)) throw new Error('unavailable');
       if (turn !== configSequence) return;
@@ -38,6 +39,7 @@
       if (turn !== configSequence) return;
       connection.textContent = '小科暫時未能連線。可以先繼續任務，稍後再試。'; reconnect.hidden = false;
     } finally {
+      clearTimeout(timer);
       if (turn === configSequence) { connecting = false; controls(); }
     }
   }
@@ -92,7 +94,7 @@
     addMessage('user', text); question.value = ''; status.textContent = '小科正在檢查提問、準備解說及審查回答…'; controls(); scrollMessages();
     const timeout = setTimeout(() => abort.abort(), 145000);
     try {
-      const response = await fetch(API + '/api/ask', {method:'POST', credentials:'omit', headers:{'Content-Type':'application/json'}, body:JSON.stringify({identity:enrollment, question:SOURCE + text}), signal:abort.signal});
+      const response = await fetch(API + '/api/ask', {method:'POST', credentials:'omit', headers:{'Content-Type':'application/json','x-region':'ap-southeast-1'}, body:JSON.stringify({identity:enrollment, question:SOURCE + text}), signal:abort.signal});
       const data = await response.json();
       if (turn !== sequence || identity !== enrollment) return;
       if (!response.ok) {
